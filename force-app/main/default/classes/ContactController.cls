@@ -10,6 +10,26 @@ public with sharing class ContactController {
     }
 
     @AuraEnabled(cacheable=true)
+    public static Integer getContactListError() {
+        return 1 / 0;
+    }
+
+    @AuraEnabled(cacheable=false)
+    public static List<Contact> getNoncacheableContactList() {
+        return [
+            SELECT Id, Name, Title, Phone, Email, Picture__c
+            FROM Contact
+            WHERE Picture__c != null
+            LIMIT 10
+        ];
+    }
+
+    @AuraEnabled(cacheable=false)
+    public static Integer getNoncacheableContactListError() {
+        return 1 / 0;
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<Contact> findContacts(String searchKey) {
         String key = '%' + searchKey + '%';
         return [
