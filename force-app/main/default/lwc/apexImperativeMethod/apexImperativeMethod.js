@@ -31,7 +31,7 @@ export default class ApexImperativeMethod extends LightningElement {
             .catch(error => {
                 this.error = error;
                 try {
-                    this.error.message = 'foo';
+                    this.error.body.message = 'foo';
                     console.error('[cacheable]error - mutated');
                 } catch (e) {
                     console.error('[cacheable]error - did not mutate');
@@ -62,7 +62,7 @@ export default class ApexImperativeMethod extends LightningElement {
             .catch(error => {
                 this.error = error;
                 try {
-                    this.error.message = 'foo';
+                    this.error.body.message = 'foo';
                     console.error('[cacheable]error - mutated');
                 } catch (e) {
                     console.error('[cacheable]error - did not mutate');
@@ -93,7 +93,7 @@ export default class ApexImperativeMethod extends LightningElement {
             .catch(error => {
                 this.error = error;
                 try {
-                    this.error.message = 'foo';
+                    this.error.body.message = 'foo';
                     console.error('[noncacheable]error - mutated');
                 } catch (e) {
                     console.error('[noncacheable]error - did not mutate');
@@ -124,7 +124,7 @@ export default class ApexImperativeMethod extends LightningElement {
             .catch(error => {
                 this.error = error;
                 try {
-                    this.error.message = 'foo';
+                    this.error.body.message = 'foo';
                     console.error('[noncacheable]error - mutated');
                 } catch (e) {
                     console.error('[noncacheable]error - did not mutate');
